@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-bg-darker: oklch(0.88 0 20);
+	--color-bg-dark: oklch(0.92 0 20);
+	--color-bg: oklch(0.96 0 20);
+	--color-bg-light: oklch(1 0 20);
+
+	--color-text: oklch(0.15 0 20);
+	--color-text-muted: oklch(0.4 0 20);
+	--color-highlight: oklch(1 0 20);
+	--color-border: oklch(0.6 0 20);
+	--color-border-muted: oklch(0.7 0 20);
+	--color-primary: oklch(0.68 0.19 40); /* orange moyen – ton principal */
+	--color-primary-hover: oklch(0.6 0.18 40); /* orange foncé au survol */
+
+	--color-secondary: oklch(0.45 0.1 250); /* bleu violacé doux, contraste avec l’orange */
+	--color-secondary-hover: oklch(0.4 0.1 250); /* plus foncé au survol */
+
+	--color-ternary: oklch(0.78 0.12 95); /* beige clair / sable doux pour fond clair ou accent */
+	--color-ternary-hover: oklch(0.72 0.12 95); /* légèrement assombri */
+
+	--color-danger: oklch(0.5 0.2 30);
+	--color-danger-hover: oklch(0.45 0.2 30);
+	--color-border-danger: oklch(0.42 0.25 30);
+
+	--color-warning: oklch(0.5 0.2 100);
+	--color-border-warning: oklch(0.48 0.25 100);
+
+	--color-success: oklch(0.5 0.2 160);
+	--color-border-success: oklch(0.45 0.25 160);
+
+	--color-info: oklch(0.5 0.2 260);
+	--color-border-info: oklch(0.45 0.25 260);
+}
