@@ -3,7 +3,7 @@ import { AuthProvider } from './providers/AuthProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Register } from './pages/Register';
-import Login from './pages/Login';
+import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import { NotificationProvider } from './providers/NotificationProvider';
 

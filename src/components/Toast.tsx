@@ -13,10 +13,10 @@ export default function Toast({ message, type = 'info', onClose, duration = 3000
 	}, [duration, onClose]);
 
 	const styles = {
-		success: 'bg-success border-border-success text-highlight',
-		error: 'bg-danger border-border-danger text-highlight',
-		warning: 'bg-warning border-border-warning text-highlight',
-		info: 'bg-info border-border-info text-highlight',
+		success: 'border bg-success border-border-success text-highlight',
+		error: 'border bg-danger border-border-danger text-highlight',
+		warning: 'border bg-warning border-border-warning text-highlight',
+		info: 'border bg-info border-border-info text-highlight',
 	};
 
 	const icons = {
@@ -28,7 +28,7 @@ export default function Toast({ message, type = 'info', onClose, duration = 3000
 
 	return (
 		<div
-			className={`fixed top-4 right-4 z-50 flex max-w-md min-w-80 items-center items-start justify-between rounded border border-1 px-4 py-3 shadow-lg ${styles[type]}`}
+			className={`fixed top-4 right-4 z-50 flex max-w-md min-w-80 items-center items-start justify-between rounded border-2 px-4 py-3 shadow-lg ${styles[type]}`}
 		>
 			<div className="flex items-center gap-3">
 				<span className="text-xl font-bold">{icons[type]}</span>

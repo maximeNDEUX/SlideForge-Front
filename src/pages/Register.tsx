@@ -1,7 +1,7 @@
 // /src/pages/Register.jsx
 
 import { useState } from 'react';
-import wallpaper from '../assets/login-wallpaper.jpg';
+import wallpaper from '../assets/register-wallpaper.jpg';
 import AppLogo from '../components/AppLogo';
 import { useNotification } from '../hooks/useNotification';
 
@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { KeyRoundIcon, MailIcon, UserIcon } from 'lucide-react';
 
 export const Register = () => {
-	const { register } = useAuth();
+	const { register, login } = useAuth();
 	const navigate = useNavigate();
 	const { showError, showSuccess } = useNotification();
 	// const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -29,11 +29,16 @@ export const Register = () => {
 		e.preventDefault();
 
 		const result = await register(formData.name, formData.email, formData.password);
+
 		if (result.success) {
-			showSuccess('Inscription réussie ! Vous pouvez maintenant vous connecter.');
-			navigate('/');
+			showSuccess(result.message ?? 'Inscription réussie');
+
+			const loginResult = await login(formData.email, formData.password);
+			if (loginResult.success) {
+				showSuccess(loginResult.message ?? 'Connexion réussie');
+				navigate('/dashboard');
+			}
 		} else {
-			console.log(result.message);
 			showError(result.message ?? 'Une erreur est survenue');
 		}
 	};

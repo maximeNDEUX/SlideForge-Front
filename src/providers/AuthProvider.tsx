@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
-import api from '../api.ts';
 import type { User } from '../types/User';
 import { authService } from '../services/authServices';
 import type { AxiosError } from 'axios';
@@ -34,43 +33,34 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 		fetchProfile();
 	}, [token]);
 
-	const register: AuthContextType['register'] = async (
-		name: string,
-		email: string,
-		password: string
-	) => {
+	const register: AuthContextType['register'] = async (name, email, password) => {
 		try {
-			await api.post('/auth/register', { name, email, password });
-			const response = await api.post('/auth/login', { email, password });
-			const { token: newToken, user: newUser } = response.data.data;
-
-			localStorage.setItem('token', newToken);
-			setToken(newToken);
-			setUser(newUser);
-
+			const { token, user } = await authService.register(name, email, password);
+			localStorage.setItem('token', token);
+			setToken(token);
+			setUser(user);
 			return { success: true, message: 'Inscription réussie' };
 		} catch (err: unknown) {
 			const error = err as AxiosError<{ message: string }>;
 			return {
 				success: false,
-				error: error.response?.data?.message || 'Une erreur est survenue',
+				message: error.response?.data?.message || 'Une erreur est survenue',
 			};
 		}
 	};
 
-	const login = async (email: string, password: string) => {
+	const login: AuthContextType['login'] = async (email, password) => {
 		try {
-			const response = await api.post('/auth/login', { email, password });
-			const { token: newToken, user: newUser } = response.data.data;
-			localStorage.setItem('token', newToken);
-			setToken(newToken);
-			setUser(newUser);
+			const { token, user } = await authService.login(email, password);
+			localStorage.setItem('token', token);
+			setToken(token);
+			setUser(user);
 			return { success: true, message: 'Connexion réussie' };
 		} catch (err: unknown) {
 			const error = err as AxiosError<{ message: string }>;
 			return {
 				success: false,
-				error: error.response?.data?.message || 'Une erreur est survenue',
+				message: error.response?.data?.message || 'Une erreur est survenue',
 			};
 		}
 	};
