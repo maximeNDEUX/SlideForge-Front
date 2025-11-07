@@ -28,7 +28,7 @@ export default function Toast({ message, type = 'info', onClose, duration = 3000
 
 	return (
 		<div
-			className={`fixed top-4 right-4 z-50 flex max-w-md min-w-80 items-center items-start justify-between rounded border-2 px-4 py-3 shadow-lg ${styles[type]}`}
+			className={`flex max-w-md min-w-80 items-center items-start justify-between rounded border-2 px-4 py-3 shadow-lg ${styles[type]}`}
 		>
 			<div className="flex items-center gap-3">
 				<span className="text-xl font-bold">{icons[type]}</span>

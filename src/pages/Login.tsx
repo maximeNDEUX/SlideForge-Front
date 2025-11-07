@@ -29,8 +29,6 @@ export const Login = () => {
 
 		const result = await login(formData.email, formData.password);
 
-		console.log(result);
-
 		if (result.success) {
 			showSuccess(result.message ?? 'Connexion réussie');
 			navigate('/dashboard');

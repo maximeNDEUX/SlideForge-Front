@@ -20,6 +20,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 			if (token) {
 				try {
 					const profile = await authService.getProfile();
+					console.log('profile ', profile);
 					setUser(profile);
 				} catch (error) {
 					console.warn('Impossible de charger le profil :', error);
