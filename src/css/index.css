@@ -11,6 +11,10 @@
 	--color-highlight: oklch(1 0 20);
 	--color-border: oklch(0.6 0 20);
 	--color-border-muted: oklch(0.7 0 20);
+
+	--color-muted: oklch(0.6 0 20);
+	--color-muted-hover: oklch(0.5 0 20);
+
 	--color-primary: oklch(0.68 0.19 40); /* orange moyen – ton principal */
 	--color-primary-hover: oklch(0.6 0.18 40); /* orange foncé au survol */
 

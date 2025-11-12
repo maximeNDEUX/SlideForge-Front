@@ -11,7 +11,7 @@ export default function UserInfos() {
 			<div className="bg-bg-light text-text-muted flex h-8 w-8 items-center justify-center rounded-full font-medium shadow-sm">
 				{user.name[0].toUpperCase()}
 			</div>
-			<p className="hidden lg:block">{user.name}</p>
+			<p className="text-text">{user.name}</p>
 		</div>
 	);
 }

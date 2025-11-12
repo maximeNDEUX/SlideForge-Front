@@ -5,8 +5,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
+import { DeckEditPage } from './pages/DeckEditPage';
+
 import { NotificationProvider } from './providers/NotificationProvider';
 import ProtectedRoute from './components/ProtectedRoute';
+import { TestPage } from './pages/TestPage';
+import DeckViewPage from './pages/DeckViewPage';
 
 function App() {
 	return (
@@ -22,6 +26,33 @@ function App() {
 							element={
 								<ProtectedRoute>
 									<Dashboard />
+								</ProtectedRoute>
+							}
+						/>
+
+						<Route
+							path="/deck/:id/edit"
+							element={
+								<ProtectedRoute>
+									<DeckEditPage />
+								</ProtectedRoute>
+							}
+						/>
+
+						<Route
+							path="/deck/:id/view"
+							element={
+								<ProtectedRoute>
+									<DeckViewPage />
+								</ProtectedRoute>
+							}
+						/>
+
+						<Route
+							path="/test"
+							element={
+								<ProtectedRoute>
+									<TestPage />
 								</ProtectedRoute>
 							}
 						/>

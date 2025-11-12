@@ -6,7 +6,7 @@ export const deckService = {
 		const resp = await api.get('/decks');
 		return resp.data.decks;
 	},
-	async getOne(id: number): Promise<Deck> {
+	async getOne(id: number) {
 		const resp = await api.get(`/decks/${id}`);
 		return resp.data;
 	},
