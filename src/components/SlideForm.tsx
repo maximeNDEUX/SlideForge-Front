@@ -332,7 +332,7 @@ export default function SlideForm({
 
 				{/* Contenu selon le type */}
 				{formData.kind === 'list' ? (
-					<ul className="mt-2 list-inside list-disc space-y-1 text-gray-700">
+					<ul className="mt-2 line-clamp-12 list-inside list-disc space-y-1 text-gray-700">
 						{formData.content
 							?.split('\n')
 							.filter((line) => line.trim() !== '')
@@ -341,12 +341,14 @@ export default function SlideForm({
 							))}
 					</ul>
 				) : formData.kind === 'code' ? (
-					<pre className="mt-2 overflow-x-auto rounded bg-gray-900 p-4 text-sm text-green-400">
+					<pre className="mt-2 line-clamp-12 overflow-x-auto rounded bg-gray-900 p-4 text-sm text-green-400">
 						{formData.content}
 					</pre>
 				) : (
 					formData.content && (
-						<p className="mt-2 whitespace-pre-line text-gray-700">{formData.content}</p>
+						<p className="mt-2 line-clamp-12 whitespace-pre-line text-gray-700">
+							{formData.content}
+						</p>
 					)
 				)}
 			</div>

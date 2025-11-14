@@ -124,17 +124,17 @@ export default function DeckList() {
 							{/* Actions */}
 							<div className="mt-4 flex items-center justify-start gap-4">
 								<button
+									onClick={() => handleView(deck.id)}
+									className="bg-secondary hover:bg-secondary-hover text-highlight focus:ring-secondary flex gap-2 rounded-md px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer focus:ring-2 focus:ring-offset-2 focus:outline-none"
+								>
+									<PlayIcon />
+								</button>
+
+								<button
 									onClick={() => handleEdit(deck.id)}
 									className="bg-bg-light text-primary hover:border-primary-hover hover:text-primary-hover focus:ring-primary flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
 								>
 									<PencilIcon />
-								</button>
-
-								<button
-									onClick={() => handleView(deck.id)}
-									className="bg-bg-light text-secondary hover:border-secondary-hover hover:text-secondary-hover focus:ring-secondary flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
-								>
-									<PlayIcon />
 								</button>
 
 								<button
