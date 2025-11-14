@@ -30,20 +30,20 @@ export default function DeckSlides({ slides, onEdit, onDelete }: DeckSlidesProps
 					</div>
 
 					{/* Bloc boutons, bien collé à droite */}
-					<div className="flex items-center gap-2">
+					<div className="flex items-center gap-4">
 						<button
 							onClick={() => onDelete?.(slide.id)}
 							className="bg-bg-light text-danger hover:border-danger-hover hover:text-danger-hover focus:ring-danger flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
 						>
 							<Trash2Icon />
-							<span>Supprimer</span>{' '}
+							<span className="hidden sm:block">Supprimer</span>{' '}
 						</button>
 						<button
 							onClick={() => onEdit?.(slide)}
 							className="bg-bg-light text-secondary hover:border-secondary-hover hover:text-secondary-hover focus:ring-secondary flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
 						>
 							<PencilIcon />
-							<span>Modifier</span>
+							<span className="hidden sm:block">Modifier</span>
 						</button>
 					</div>
 				</div>

@@ -1,6 +1,21 @@
 import { useEffect, useState } from 'react';
 import type { Slide } from '../types/SlideType';
-import { SaveIcon, Trash2, XIcon } from 'lucide-react';
+import {
+	Code2Icon,
+	EyeIcon,
+	HeadingIcon,
+	LinkIcon,
+	ListIcon,
+	PaintBucketIcon,
+	PlusIcon,
+	QuoteIcon,
+	SaveIcon,
+	SignatureIcon,
+	TextAlignStartIcon,
+	Trash2,
+	TypeIcon,
+	XIcon,
+} from 'lucide-react';
 
 interface SlideFormProps {
 	title?: string;
@@ -73,69 +88,88 @@ export default function SlideForm({
 		switch (formData.kind) {
 			case 'title':
 				return (
-					<div className="mb-4">
-						<label className="mb-1 block text-gray-700">Titre principal</label>
-						<input
-							type="text"
-							name="title"
-							value={formData.title || ''}
-							onChange={handleChange}
-							className="w-full rounded border p-2"
-							placeholder="Ex : Introduction"
-						/>
+					<div className="space-y-8">
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<HeadingIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Titre</label>
+							</div>
+							<input
+								type="text"
+								name="title"
+								value={formData.title || ''}
+								onChange={handleChange}
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
+								placeholder="Titre du slide"
+							/>
+						</div>
 					</div>
 				);
 
 			case 'text':
 				return (
-					<>
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">Titre</label>
+					<div className="space-y-8">
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<HeadingIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Titre</label>
+							</div>
 							<input
 								type="text"
 								name="title"
 								value={formData.title || ''}
 								onChange={handleChange}
-								className="w-full rounded border p-2"
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
+								placeholder="Titre du slide"
 							/>
 						</div>
 
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">Contenu</label>
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<TextAlignStartIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Contenu</label>
+							</div>
 							<textarea
 								name="content"
 								value={formData.content || ''}
 								onChange={handleChange}
 								rows={5}
-								className="w-full rounded border p-2"
-								placeholder="Texte de la slide..."
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
+								placeholder="Texte de la slide"
 							/>
 						</div>
-					</>
+					</div>
 				);
 
 			case 'image':
 				return (
-					<>
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">Titre</label>
+					<div className="space-y-8">
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<HeadingIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Titre</label>
+							</div>
 							<input
 								type="text"
 								name="title"
 								value={formData.title || ''}
 								onChange={handleChange}
-								className="w-full rounded border p-2"
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
+								placeholder="Titre du slide"
 							/>
 						</div>
 
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">URL de l’image</label>
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<LinkIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">URL de l'image</label>
+							</div>
 							<input
 								type="text"
 								name="imageUrl"
 								value={formData.imageUrl || ''}
 								onChange={handleChange}
-								className="w-full rounded border p-2"
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
 								placeholder="https://exemple.com/mon-image.jpg"
 							/>
 						</div>
@@ -147,96 +181,116 @@ export default function SlideForm({
 								className="mt-2 max-h-48 rounded border object-cover shadow-sm"
 							/>
 						)}
-					</>
+					</div>
 				);
 
 			case 'list':
 				return (
-					<>
+					<div className="space-y-8">
 						{/* Titre */}
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">Titre</label>
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<HeadingIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Titre</label>
+							</div>
 							<input
 								type="text"
 								name="title"
 								value={formData.title || ''}
 								onChange={handleChange}
-								className="w-full rounded border p-2"
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
 								placeholder="Titre de la slide"
 							/>
 						</div>
 
 						{/* Liste */}
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">Liste d’éléments</label>
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<ListIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Liste d'éléments</label>
+							</div>
 							<textarea
 								name="content"
 								value={formData.content || ''}
 								onChange={handleChange}
 								rows={5}
-								className="w-full rounded border p-2 font-mono"
-								placeholder="- Élément 1\n- Élément 2\n- Élément 3"
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
+								placeholder="Éléments de la liste"
 							/>
-							<p className="mt-1 text-xs text-gray-500">
-								💡 Saisis un élément par ligne ou commence chaque ligne par “- ”
+							<p className="text-text-muted text-xs">
+								Saisissez un élément par ligne
 							</p>
 						</div>
-					</>
+					</div>
 				);
 
 			case 'quote':
 				return (
-					<>
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">Citation</label>
+					<div className="space-y-8">
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<QuoteIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Citation</label>
+							</div>
 							<textarea
 								name="content"
 								value={formData.content || ''}
 								onChange={handleChange}
 								rows={3}
-								className="w-full rounded border p-2 italic"
-								placeholder="« La simplicité est la sophistication suprême. »"
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
+								placeholder="Contenu de la citation"
 							/>
 						</div>
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">Auteur</label>
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<SignatureIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Auteur</label>
+							</div>
 							<input
 								type="text"
 								name="title"
 								value={formData.title || ''}
 								onChange={handleChange}
-								className="w-full rounded border p-2"
-								placeholder="Léonard de Vinci"
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
+								placeholder="Auteur de la citation"
 							/>
 						</div>
-					</>
+					</div>
 				);
 
 			case 'code':
 				return (
-					<>
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">Titre (optionnel)</label>
+					<div className="space-y-8">
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<HeadingIcon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Titre</label>
+							</div>
 							<input
 								type="text"
 								name="title"
 								value={formData.title || ''}
 								onChange={handleChange}
-								className="w-full rounded border p-2"
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
+								placeholder="Titre de la slide"
 							/>
 						</div>
 
-						<div className="mb-4">
-							<label className="mb-1 block text-gray-700">Bloc de code</label>
+						<div className="space-y-2">
+							<div className="flex items-center gap-2">
+								<Code2Icon className="text-text-muted h-4 w-4" />
+								<label className="text-text font-medium">Code</label>
+							</div>
 							<textarea
 								name="content"
 								value={formData.content || ''}
 								onChange={handleChange}
 								rows={6}
-								className="w-full rounded border bg-gray-50 p-2 font-mono"
+								className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 focus:border-none focus:ring-2 focus:outline-none"
+								placeholder="Contenu du code"
 							/>
 						</div>
-					</>
+					</div>
 				);
 
 			default:
@@ -259,7 +313,7 @@ export default function SlideForm({
 
 		return (
 			<div
-				className="mt-8 rounded-lg border p-6 shadow-md transition-all duration-300"
+				className="rounded-lg border p-6 shadow-md transition-all duration-300"
 				style={{ backgroundColor: bgColor }}
 			>
 				{/* Aperçu d'image */}
@@ -300,71 +354,95 @@ export default function SlideForm({
 	};
 	return (
 		<form onSubmit={handleSubmit} className="bg-bg space-y-4 rounded-lg p-6 shadow-xl">
-			<h2 className="mb-6 text-center text-2xl font-semibold text-gray-700">{title}</h2>
+			<h2 className="text-text pb-8 text-2xl font-bold">{title}</h2>
 
-			{/* Type de slide */}
-			<div className="mb-6">
-				<label className="mb-1 block text-gray-700">Type de slide</label>
-				<select
-					name="kind"
-					value={formData.kind}
-					onChange={handleChange}
-					className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 hover:cursor-pointer focus:border-none focus:ring-2 focus:outline-none"
-				>
-					<option value="title">Titre</option>
-					<option value="text">Texte</option>
-					<option value="image">Image</option>
-					<option value="list">Liste</option>
-					<option value="quote">Citation</option>
-					<option value="code">Code</option>
-				</select>
-			</div>
-
-			{/* Rendu dynamique */}
-			{renderFields()}
-
-			{/* Couleur de fond */}
-			<div className="mb-6">
-				<label className="mb-1 block text-gray-700">Couleur de fond</label>
-				<input
-					type="color"
-					name="bg"
-					value={formData.bg || '#ffffff'}
-					onChange={handleChange}
-					className="h-10 w-20 cursor-pointer rounded border"
-				/>
-			</div>
-
-			{/* Boutons */}
-			<div className="mt-6 flex justify-end gap-3">
-				{onCancel && (
-					<button
-						type="button"
-						onClick={onCancel}
-						className="bg-bg-light text-danger hover:border-danger-hover hover:text-danger-hover focus:ring-danger flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
+			<div className="space-y-8">
+				{/* Type de slide */}
+				<div className="space-y-2">
+					<div className="flex items-center gap-2">
+						<TypeIcon className="text-text-muted h-4 w-4" />
+						<label className="text-text font-medium">Type de slide</label>
+					</div>
+					<select
+						name="kind"
+						value={formData.kind}
+						onChange={handleChange}
+						className="border-border-muted focus:ring-primary bg-bg-light w-full rounded-md border px-2 py-1 transition-shadow duration-200 hover:cursor-pointer focus:border-none focus:ring-2 focus:outline-none"
 					>
-						<XIcon /> Annuler
-					</button>
-				)}
-				{onDelete && (
+						<option value="title">Titre</option>
+						<option value="text">Texte</option>
+						<option value="image">Image</option>
+						<option value="list">Liste</option>
+						<option value="quote">Citation</option>
+						<option value="code">Code</option>
+					</select>
+					<hr className="border-muted my-8 border border-dashed" />
+				</div>
+
+				{/* Rendu dynamique */}
+				{renderFields()}
+
+				{/* Couleur de fond */}
+				<div className="space-y-2">
+					<div className="flex items-center gap-2">
+						<PaintBucketIcon className="text-text-muted h-4 w-4" />
+						<label className="text-text font-medium">Couleur de fond</label>
+					</div>
+					<input
+						type="color"
+						name="bg"
+						value={formData.bg || '#ffffff'}
+						onChange={handleChange}
+						className="border-border-muted focus:ring-primary bg-bg-light h-15 w-full cursor-pointer rounded-md border p-1 px-2 py-1 transition-shadow duration-200 hover:cursor-pointer focus:border-none focus:ring-2 focus:outline-none"
+					/>
+				</div>
+
+				{/* Boutons */}
+				<div className="mt-6 flex justify-end gap-3">
+					{onCancel && (
+						<button
+							type="button"
+							onClick={onCancel}
+							className="bg-bg-light text-danger hover:border-danger-hover hover:text-danger-hover focus:ring-danger flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
+						>
+							<XIcon /> Annuler
+						</button>
+					)}
+					{onDelete && (
+						<button
+							type="button"
+							onClick={onDelete}
+							className="bg-bg-light text-danger hover:border-danger-hover hover:text-danger-hover focus:ring-danger flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
+						>
+							<Trash2 /> Supprimer
+						</button>
+					)}
 					<button
-						type="button"
-						onClick={onDelete}
-						className="bg-bg-light text-danger hover:border-danger-hover hover:text-danger-hover focus:ring-danger flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
+						type="submit"
+						className="bg-bg-light text-secondary hover:border-secondary-hover hover:text-secondary-hover focus:ring-secondary flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
 					>
-						<Trash2 /> Supprimer
+						{slide ? (
+							<div className="flex items-center gap-2">
+								<SaveIcon />
+								<p>Mettre à jour</p>
+							</div>
+						) : (
+							<div className="flex items-center gap-2">
+								<PlusIcon />
+								<p>Ajouter la slide</p>
+							</div>
+						)}
 					</button>
-				)}
-				<button
-					type="submit"
-					className="bg-bg-light text-secondary hover:border-secondary-hover hover:text-secondary-hover focus:ring-secondary flex gap-2 rounded-md border-2 border-transparent px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer hover:border-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
-				>
-					<SaveIcon /> {slide ? 'Mettre à jour' : 'Ajouter'}
-				</button>
+				</div>
 			</div>
+			<hr className="border-muted my-8 border border-dashed" />
+
 			{/* 🚀 Aperçu dynamique */}
-			<div className="mt-10">
-				<h3 className="mb-2 text-lg font-semibold text-gray-700">Aperçu en direct</h3>
+			<div className="space-y-2">
+				<div className="flex items-center gap-2">
+					<EyeIcon className="text-text-muted h-4 w-4" />
+					<label className="text-text font-medium">Aperçu en direct</label>
+				</div>{' '}
 				{renderPreview()}
 			</div>
 		</form>
