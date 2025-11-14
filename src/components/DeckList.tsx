@@ -3,6 +3,7 @@ import DeckModal from '../components/DeckModal';
 import { deckService } from '../services/deckServices';
 import { useNotification } from '../hooks/useNotification';
 import {
+	CalendarIcon,
 	ImageUpscaleIcon,
 	PaletteIcon,
 	PencilIcon,
@@ -116,13 +117,22 @@ export default function DeckList() {
 										Ratio : <span className="font-medium">{deck.ratio}</span>
 									</p>
 								</div>
-								<p className="text-text-muted text-md">
-									Créé le {new Date(deck.createdAt).toLocaleDateString('fr-FR')}
-								</p>
+								<div className="mb-2 flex items-center gap-2">
+									<CalendarIcon className="text-text-muted h-4 w-4" />
+									<p className="text-md">
+										{new Intl.DateTimeFormat('fr-FR', {
+											day: '2-digit',
+											month: '2-digit',
+											year: 'numeric',
+											hour: '2-digit',
+											minute: '2-digit',
+										}).format(new Date(deck.createdAt))}
+									</p>
+								</div>
 							</div>
 
 							{/* Actions */}
-							<div className="mt-4 flex items-center justify-start gap-4">
+							<div className="mt-4 flex items-center justify-end gap-4">
 								<button
 									onClick={() => handleView(deck.id)}
 									className="bg-secondary hover:bg-secondary-hover text-highlight focus:ring-secondary flex gap-2 rounded-md px-4 py-2 font-medium shadow-sm transition-colors duration-200 hover:cursor-pointer focus:ring-2 focus:ring-offset-2 focus:outline-none"

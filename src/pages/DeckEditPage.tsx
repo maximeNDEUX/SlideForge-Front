@@ -132,7 +132,7 @@ export const DeckEditPage = () => {
 							showButtons={true}
 						/>
 					) : (
-						<p className="text-gray-400">Aucune présentation trouvée.</p>
+						<p className="text-text-muted">Aucune présentation trouvée.</p>
 					)}
 				</section>
 

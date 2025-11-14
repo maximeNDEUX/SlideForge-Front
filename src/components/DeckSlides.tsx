@@ -8,8 +8,9 @@ interface DeckSlidesProps {
 }
 
 export default function DeckSlides({ slides, onEdit, onDelete }: DeckSlidesProps) {
-	if (!slides) return <p className="text-center text-gray-500">Aucune slide pour ce deck.</p>;
-
+	if (!slides || slides.length === 0) {
+		return <p className="text-text-muted text-center">Aucune slide pour ce deck</p>;
+	}
 	return (
 		<div className="space-y-4">
 			{slides.map((slide) => (

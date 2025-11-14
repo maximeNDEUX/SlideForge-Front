@@ -55,7 +55,7 @@ export default function DeckModal({ isOpen, onClose, onCreated }: DeckModalProps
 				<div className="space-y-8">
 					<h2 className="text-text text-2xl font-bold">Nouvelle présentation</h2>
 
-					<form onSubmit={handleSubmit} className="space-y-4">
+					<form onSubmit={handleSubmit} className="space-y-8">
 						{/* Champ Titre */}
 						<div className="space-y-2">
 							<div className="flex items-center gap-2">

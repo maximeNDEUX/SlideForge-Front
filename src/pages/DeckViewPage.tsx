@@ -123,7 +123,7 @@ export default function DeckViewPage() {
 								{slide.title}
 							</h2>
 
-							<p className="text-text-muted line-clamp-6 text-lg leading-relaxed tracking-wide sm:text-xl md:line-clamp-8 md:text-2xl lg:text-3xl">
+							<p className="text-text-muted line-clamp-6 text-start text-lg leading-relaxed tracking-wide sm:text-xl md:line-clamp-8 md:text-2xl lg:text-3xl">
 								{slide.content}
 							</p>
 						</div>

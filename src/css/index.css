@@ -15,14 +15,13 @@
 	--color-muted: oklch(0.6 0 20);
 	--color-muted-hover: oklch(0.5 0 20);
 
-	--color-primary: oklch(0.68 0.19 40); /* orange moyen – ton principal */
-	--color-primary-hover: oklch(0.6 0.18 40); /* orange foncé au survol */
+	--color-primary: oklch(0.68 0.19 40);
+	--color-primary-hover: oklch(0.6 0.18 40);
+	--color-secondary: oklch(0.45 0.1 250);
+	--color-secondary-hover: oklch(0.4 0.1 250);
 
-	--color-secondary: oklch(0.45 0.1 250); /* bleu violacé doux, contraste avec l’orange */
-	--color-secondary-hover: oklch(0.4 0.1 250); /* plus foncé au survol */
-
-	--color-ternary: oklch(0.78 0.12 95); /* beige clair / sable doux pour fond clair ou accent */
-	--color-ternary-hover: oklch(0.72 0.12 95); /* légèrement assombri */
+	--color-ternary: oklch(0.78 0.12 95);
+	--color-ternary-hover: oklch(0.72 0.12 95);
 
 	--color-danger: oklch(0.5 0.2 30);
 	--color-danger-hover: oklch(0.45 0.2 30);
